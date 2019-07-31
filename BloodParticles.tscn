@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.733333, 0.113725, 0.113725, 1 )
+
+[sub_resource type="ParticlesMaterial" id=2]
+spread = 85.06
+flatness = 0.42
+gravity = Vector3( 0, -3, 0 )
+initial_velocity = 0.7
+initial_velocity_random = 0.54
+linear_accel = -4.22
+damping_random = 0.53
+scale_random = 0.32
+
+[sub_resource type="CubeMesh" id=3]
+size = Vector3( 0.005, 0.005, 0.005 )
+
+[node name="BloodParticles" type="Particles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.148179, 0 )
+material_override = SubResource( 1 )
+emitting = false
+amount = 50
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+randomness = 0.1
+visibility_aabb = AABB( -0.043394, -0.1323, -0.0167682, 0.106269, 0.155502, 0.08049 )
+process_material = SubResource( 2 )
+draw_pass_1 = SubResource( 3 )

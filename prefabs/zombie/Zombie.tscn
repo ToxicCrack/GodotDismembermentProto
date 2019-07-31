@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://prefabs/zombie/dest_char.dae" type="PackedScene" id=1]
+[ext_resource path="res://prefabs/zombie/Zombie.gd" type="Script" id=2]
+[ext_resource path="res://prefabs/bloodParticleMat.tres" type="Material" id=3]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.469679, 0.746633, 0.223328 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.220628, 0.368877, 0.223328 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.220628, 0.370634, 0.223328 )
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.666667, 0.113725, 0.113725, 1 )
+
+[sub_resource type="CubeMesh" id=5]
+material = SubResource( 4 )
+size = Vector3( 0.1, 0.1, 0.1 )
+
+[sub_resource type="CapsuleShape" id=6]
+radius = 1.12063
+height = 1.94197
+
+[node name="Zombie" groups=[
+"enemy",
+] instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="col_body" type="CollisionShape" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.23945, 0 )
+shape = SubResource( 1 )
+
+[node name="col_leg_lwr_l" type="CollisionShape" parent="." index="1"]
+transform = Transform( 0.997513, -0.0704781, 0, 0.0704781, 0.997513, 0, 0, 0, 1, 0.294653, 0.390189, -0.0114489 )
+shape = SubResource( 2 )
+
+[node name="col_leg_uppr_l" type="CollisionShape" parent="." index="2"]
+transform = Transform( 0.997513, -0.0704781, 0, 0.0704781, 0.997513, 0, 0, 0, 1, 0.294653, 1.1344, -0.0114489 )
+shape = SubResource( 2 )
+
+[node name="col_leg_lwr_r" type="CollisionShape" parent="." index="3"]
+transform = Transform( 0.999118, 0.0420106, 0, -0.0420106, 0.999118, 0, 0, 0, 1, -0.307056, 0.378338, -0.0114489 )
+shape = SubResource( 3 )
+
+[node name="col_leg_uppr_r" type="CollisionShape" parent="." index="4"]
+transform = Transform( 0.999118, 0.0420106, 0, -0.0420106, 0.999118, 0, 0, 0, 1, -0.307056, 1.13604, -0.0114489 )
+shape = SubResource( 3 )
+
+[node name="BloodParticles" type="Particles" parent="." index="5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25854, -0.51324 )
+emitting = false
+amount = 50
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.66
+randomness = 0.45
+visibility_aabb = AABB( -1.64843, -2.32481, -0.199884, 3.26857, 3.11959, 1.75848 )
+process_material = ExtResource( 3 )
+draw_pass_1 = SubResource( 5 )
+
+[node name="KillArea" type="Area" parent="." index="6"]
+
+[node name="CollisionShape" type="CollisionShape" parent="KillArea" index="0"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, 2.08102, -0.382914 )
+shape = SubResource( 6 )
+
+[node name="Armature" parent="." index="7"]
+editor/display_folded = true
+transform = Transform( -25, -2.18557e-006, 9.55343e-014, 0, -1.09278e-006, -25, 2.18557e-006, -25, 1.09278e-006, 0, 0, 0 )
+[connection signal="body_entered" from="KillArea" to="." method="_on_KillArea_body_entered"]

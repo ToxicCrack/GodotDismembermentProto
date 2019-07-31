@@ -1,0 +1,10 @@
+[gd_resource type="ParticlesMaterial" format=2]
+
+[resource]
+spread = 85.06
+flatness = 0.42
+gravity = Vector3( 0, -9.4, 0 )
+initial_velocity = 6.0
+initial_velocity_random = 0.54
+linear_accel = -4.22
+damping_random = 0.53
