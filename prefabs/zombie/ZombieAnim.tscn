@@ -1,0 +1,385 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://prefabs/zombie/dest_char.glb" type="PackedScene" id=1]
+[ext_resource path="res://prefabs/zombie/Zombie.gd" type="Script" id=2]
+[ext_resource path="res://prefabs/bloodParticleMat.tres" type="Material" id=3]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.469679, 0.746633, 0.223328 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.220628, 0.368877, 0.223328 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.220628, 0.370634, 0.223328 )
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.666667, 0.113725, 0.113725, 1 )
+
+[sub_resource type="CubeMesh" id=5]
+material = SubResource( 4 )
+size = Vector3( 0.1, 0.1, 0.1 )
+
+[sub_resource type="CapsuleShape" id=6]
+radius = 1.12063
+height = 1.94197
+
+[sub_resource type="ConcavePolygonShape" id=7]
+data = PoolVector3Array( 0.04, 0.09, 0.0097, 0.04, 0.06, 0.0098, 0.02, 0.06, 0.0098, 0.04, 0.09, 0.0097, 0.02, 0.06, 0.0098, 0.02, 0.09, 0.0097, 0.02, 0.09, -0.0103, 0.02, 0.06, -0.0102, 0.04, 0.06, -0.0102, 0.02, 0.09, -0.0103, 0.04, 0.06, -0.0102, 0.04, 0.09, -0.0103, 0.04, 0.09, -0.0103, 0.04, 0.06, -0.0102, 0.04, 0.06, 0.0098, 0.04, 0.09, -0.0103, 0.04, 0.06, 0.0098, 0.04, 0.09, 0.0097, 0.02, 0.06, 0.0098, 0.02, 0.06, -0.0102, 0.02, 0.09, -0.0103, 0.02, 0.09, 0.0097, 0.02, 0.06, 0.0098, 0.02, 0.09, -0.0103, 0.04, 0.06, 0.0098, 0.04, 0.06, -0.0102, 0.02, 0.06, -0.0102, 0.04, 0.06, 0.0098, 0.02, 0.06, -0.0102, 0.02, 0.06, 0.0098, 0.02, 0.09, 0.0097, 0.02, 0.09, -0.0103, 0.04, 0.09, -0.0103, 0.02, 0.09, 0.0097, 0.04, 0.09, -0.0103, 0.04, 0.09, 0.0097 )
+
+[sub_resource type="ConcavePolygonShape" id=8]
+data = PoolVector3Array( -0.02, 0.0901, 0.0087, -0.02, 0.0601, 0.0091, -0.04, 0.0601, 0.0091, -0.02, 0.0901, 0.0087, -0.04, 0.0601, 0.0091, -0.04, 0.0901, 0.0087, -0.04, 0.0898, -0.0113, -0.04, 0.0598, -0.0109, -0.02, 0.0598, -0.0109, -0.04, 0.0898, -0.0113, -0.02, 0.0598, -0.0109, -0.02, 0.0898, -0.0113, -0.02, 0.0898, -0.0113, -0.02, 0.0598, -0.0109, -0.02, 0.0601, 0.0091, -0.02, 0.0898, -0.0113, -0.02, 0.0601, 0.0091, -0.02, 0.0901, 0.0087, -0.04, 0.0601, 0.0091, -0.04, 0.0598, -0.0109, -0.04, 0.0898, -0.0113, -0.04, 0.0901, 0.0087, -0.04, 0.0601, 0.0091, -0.04, 0.0898, -0.0113, -0.02, 0.0601, 0.0091, -0.02, 0.0598, -0.0109, -0.04, 0.0598, -0.0109, -0.02, 0.0601, 0.0091, -0.04, 0.0598, -0.0109, -0.04, 0.0601, 0.0091, -0.04, 0.0901, 0.0087, -0.04, 0.0898, -0.0113, -0.02, 0.0898, -0.0113, -0.04, 0.0901, 0.0087, -0.02, 0.0898, -0.0113, -0.02, 0.0901, 0.0087 )
+
+[sub_resource type="ConcavePolygonShape" id=9]
+data = PoolVector3Array( 0.04, 0.12, 0.0096, 0.04, 0.09, 0.0097, 0.02, 0.09, 0.0097, 0.04, 0.12, 0.0096, 0.02, 0.09, 0.0097, 0.02, 0.12, 0.0096, 0.02, 0.12, 0.0096, 0.02, 0.12, -0.0104, 0.04, 0.12, -0.0104, 0.02, 0.12, 0.0096, 0.04, 0.12, -0.0104, 0.04, 0.12, 0.0096, 0.02, 0.12, -0.0104, 0.02, 0.09, -0.0103, 0.04, 0.09, -0.0103, 0.02, 0.12, -0.0104, 0.04, 0.09, -0.0103, 0.04, 0.12, -0.0104, 0.04, 0.12, -0.0104, 0.04, 0.09, -0.0103, 0.04, 0.09, 0.0097, 0.04, 0.12, -0.0104, 0.04, 0.09, 0.0097, 0.04, 0.12, 0.0096, 0.02, 0.09, 0.0097, 0.02, 0.09, -0.0103, 0.02, 0.12, -0.0104, 0.02, 0.12, 0.0096, 0.02, 0.09, 0.0097, 0.02, 0.12, -0.0104, 0.04, 0.09, 0.0097, 0.04, 0.09, -0.0103, 0.02, 0.09, -0.0103, 0.04, 0.09, 0.0097, 0.02, 0.09, -0.0103, 0.02, 0.09, 0.0097 )
+
+[sub_resource type="ConcavePolygonShape" id=10]
+data = PoolVector3Array( -0.02, 0.1201, 0.0082, -0.02, 0.0901, 0.0087, -0.04, 0.0901, 0.0087, -0.02, 0.1201, 0.0082, -0.04, 0.0901, 0.0087, -0.04, 0.1201, 0.0082, -0.04, 0.1201, 0.0082, -0.04, 0.1198, -0.0118, -0.02, 0.1198, -0.0118, -0.04, 0.1201, 0.0082, -0.02, 0.1198, -0.0118, -0.02, 0.1201, 0.0082, -0.04, 0.1198, -0.0118, -0.04, 0.0898, -0.0113, -0.02, 0.0898, -0.0113, -0.04, 0.1198, -0.0118, -0.02, 0.0898, -0.0113, -0.02, 0.1198, -0.0118, -0.02, 0.1198, -0.0118, -0.02, 0.0898, -0.0113, -0.02, 0.0901, 0.0087, -0.02, 0.1198, -0.0118, -0.02, 0.0901, 0.0087, -0.02, 0.1201, 0.0082, -0.04, 0.0901, 0.0087, -0.04, 0.0898, -0.0113, -0.04, 0.1198, -0.0118, -0.04, 0.1201, 0.0082, -0.04, 0.0901, 0.0087, -0.04, 0.1198, -0.0118, -0.02, 0.0901, 0.0087, -0.02, 0.0898, -0.0113, -0.04, 0.0898, -0.0113, -0.02, 0.0901, 0.0087, -0.04, 0.0898, -0.0113, -0.04, 0.0901, 0.0087 )
+
+[sub_resource type="ConcavePolygonShape" id=11]
+data = PoolVector3Array( 0.02, 0.12, 0.01, 0.02, 0.06, 0.01, -0.02, 0.06, 0.01, 0.02, 0.12, 0.01, -0.02, 0.06, 0.01, -0.02, 0.12, 0.01, -0.02, 0.12, -0.01, 0.02, 0.12, -0.01, 0.02, 0.12, 0.01, -0.02, 0.12, 0.01, -0.02, 0.12, -0.01, 0.02, 0.12, 0.01, -0.02, 0.12, -0.01, -0.02, 0.06, -0.01, 0.02, 0.06, -0.01, -0.02, 0.12, -0.01, 0.02, 0.06, -0.01, 0.02, 0.12, -0.01, 0.02, 0.06, 0.01, 0.02, 0.06, -0.01, -0.02, 0.06, -0.01, 0.02, 0.06, 0.01, -0.02, 0.06, -0.01, -0.02, 0.06, 0.01, 0.02, 0.12, -0.01, 0.02, 0.06, -0.01, 0.02, 0.06, 0.01, 0.02, 0.12, -0.01, 0.02, 0.06, 0.01, 0.02, 0.12, 0.01, -0.02, 0.12, 0.01, -0.02, 0.06, 0.01, -0.02, 0.06, -0.01, -0.02, 0.12, 0.01, -0.02, 0.06, -0.01, -0.02, 0.12, -0.01 )
+
+[sub_resource type="ConcavePolygonShape" id=12]
+data = PoolVector3Array( 0.0109, 0.1287, -0.02, 0.0113, 0.12, -0.02, 0.02, 0.12, -0.02, 0.0109, 0.1287, -0.02, 0.02, 0.12, -0.02, 0.02, 0.129, -0.02, 0.02, 0.12, 0.02, 0.02, 0.12, -0.02, 0.0113, 0.12, -0.02, 0.02, 0.12, 0.02, 0.0113, 0.12, -0.02, 0.0085, 0.12, 0.02, 0.02, 0.1327, 0.02, 0.02, 0.12, 0.02, 0.0085, 0.12, 0.02, 0.02, 0.1327, 0.02, 0.0085, 0.12, 0.02, 0.0079, 0.1323, 0.02, 0.02, 0.129, -0.02, 0.02, 0.12, -0.02, 0.02, 0.12, 0.02, 0.02, 0.129, -0.02, 0.02, 0.12, 0.02, 0.02, 0.1327, 0.02, 0.0079, 0.1323, 0.02, 0.0109, 0.1287, -0.02, 0.02, 0.129, -0.02, 0.0079, 0.1323, 0.02, 0.02, 0.129, -0.02, 0.02, 0.1327, 0.02, 0.0079, 0.1323, 0.02, 0.0085, 0.12, 0.02, 0.0113, 0.12, -0.02, 0.0079, 0.1323, 0.02, 0.0113, 0.12, -0.02, 0.0109, 0.1287, -0.02 )
+
+[sub_resource type="ConcavePolygonShape" id=13]
+data = PoolVector3Array( -0.0087, 0.1318, 0.02, -0.0082, 0.12, 0.02, -0.0054, 0.12, -0.02, -0.0087, 0.1318, 0.02, -0.0054, 0.12, -0.02, -0.0057, 0.1282, -0.02, -0.0087, 0.1318, 0.02, -0.0057, 0.1282, -0.02, 0.0109, 0.1287, -0.02, -0.0087, 0.1318, 0.02, 0.0109, 0.1287, -0.02, 0.0079, 0.1323, 0.02, -0.0057, 0.1282, -0.02, -0.0054, 0.12, -0.02, 0.0113, 0.12, -0.02, -0.0057, 0.1282, -0.02, 0.0113, 0.12, -0.02, 0.0109, 0.1287, -0.02, 0.0085, 0.12, 0.02, 0.0113, 0.12, -0.02, -0.0054, 0.12, -0.02, 0.0085, 0.12, 0.02, -0.0054, 0.12, -0.02, -0.0082, 0.12, 0.02, 0.0079, 0.1323, 0.02, 0.0085, 0.12, 0.02, -0.0082, 0.12, 0.02, 0.0079, 0.1323, 0.02, -0.0082, 0.12, 0.02, -0.0087, 0.1318, 0.02, 0.0109, 0.1287, -0.02, 0.0113, 0.12, -0.02, 0.0085, 0.12, 0.02, 0.0109, 0.1287, -0.02, 0.0085, 0.12, 0.02, 0.0079, 0.1323, 0.02 )
+
+[sub_resource type="ConcavePolygonShape" id=14]
+data = PoolVector3Array( -0.02, 0.1277, -0.02, -0.02, 0.12, -0.02, -0.0054, 0.12, -0.02, -0.02, 0.1277, -0.02, -0.0054, 0.12, -0.02, -0.0057, 0.1282, -0.02, -0.0082, 0.12, 0.02, -0.0054, 0.12, -0.02, -0.02, 0.12, -0.02, -0.0082, 0.12, 0.02, -0.02, 0.12, -0.02, -0.02, 0.12, 0.02, -0.02, 0.1315, 0.02, -0.02, 0.12, 0.02, -0.02, 0.12, -0.02, -0.02, 0.1315, 0.02, -0.02, 0.12, -0.02, -0.02, 0.1277, -0.02, -0.0087, 0.1318, 0.02, -0.0082, 0.12, 0.02, -0.02, 0.12, 0.02, -0.0087, 0.1318, 0.02, -0.02, 0.12, 0.02, -0.02, 0.1315, 0.02, -0.02, 0.1315, 0.02, -0.02, 0.1277, -0.02, -0.0057, 0.1282, -0.02, -0.02, 0.1315, 0.02, -0.0057, 0.1282, -0.02, -0.0087, 0.1318, 0.02, -0.0057, 0.1282, -0.02, -0.0054, 0.12, -0.02, -0.0082, 0.12, 0.02, -0.0057, 0.1282, -0.02, -0.0082, 0.12, 0.02, -0.0087, 0.1318, 0.02 )
+
+[sub_resource type="ConcavePolygonShape" id=15]
+data = PoolVector3Array( 0.02, 0.1489, -0.02, 0.02, 0.129, -0.02, 0.02, 0.1327, 0.02, 0.02, 0.1489, -0.02, 0.02, 0.1327, 0.02, 0.02, 0.1497, 0.02, 0.02, 0.1327, 0.02, 0.0079, 0.1323, 0.02, 0.007, 0.1492, 0.02, 0.02, 0.1497, 0.02, 0.02, 0.1327, 0.02, 0.007, 0.1492, 0.02, 0.0099, 0.1485, -0.02, 0.0109, 0.1287, -0.02, 0.02, 0.129, -0.02, 0.0099, 0.1485, -0.02, 0.02, 0.129, -0.02, 0.02, 0.1489, -0.02, 0.007, 0.1492, 0.02, 0.0099, 0.1485, -0.02, 0.02, 0.1489, -0.02, 0.007, 0.1492, 0.02, 0.02, 0.1489, -0.02, 0.02, 0.1497, 0.02, 0.0079, 0.1323, 0.02, 0.0109, 0.1287, -0.02, 0.0099, 0.1485, -0.02, 0.007, 0.1492, 0.02, 0.0079, 0.1323, 0.02, 0.0099, 0.1485, -0.02, 0.02, 0.129, -0.02, 0.0109, 0.1287, -0.02, 0.0079, 0.1323, 0.02, 0.02, 0.1327, 0.02, 0.02, 0.129, -0.02, 0.0079, 0.1323, 0.02 )
+
+[sub_resource type="ConcavePolygonShape" id=16]
+data = PoolVector3Array( -0.0093, 0.1485, 0.02, -0.0065, 0.1479, -0.02, 0.0099, 0.1485, -0.02, -0.0093, 0.1485, 0.02, 0.0099, 0.1485, -0.02, 0.007, 0.1492, 0.02, -0.0087, 0.1318, 0.02, -0.0057, 0.1282, -0.02, -0.0065, 0.1479, -0.02, -0.0093, 0.1485, 0.02, -0.0087, 0.1318, 0.02, -0.0065, 0.1479, -0.02, 0.0079, 0.1323, 0.02, -0.0087, 0.1318, 0.02, -0.0093, 0.1485, 0.02, 0.007, 0.1492, 0.02, 0.0079, 0.1323, 0.02, -0.0093, 0.1485, 0.02, -0.0065, 0.1479, -0.02, -0.0057, 0.1282, -0.02, 0.0109, 0.1287, -0.02, -0.0065, 0.1479, -0.02, 0.0109, 0.1287, -0.02, 0.0099, 0.1485, -0.02, 0.0109, 0.1287, -0.02, -0.0057, 0.1282, -0.02, -0.0087, 0.1318, 0.02, 0.0079, 0.1323, 0.02, 0.0109, 0.1287, -0.02, -0.0087, 0.1318, 0.02, 0.0099, 0.1485, -0.02, 0.0109, 0.1287, -0.02, 0.0079, 0.1323, 0.02, 0.0099, 0.1485, -0.02, 0.0079, 0.1323, 0.02, 0.007, 0.1492, 0.02 )
+
+[sub_resource type="ConcavePolygonShape" id=17]
+data = PoolVector3Array( -0.02, 0.1315, 0.02, -0.02, 0.1277, -0.02, -0.02, 0.1473, -0.02, -0.02, 0.1481, 0.02, -0.02, 0.1315, 0.02, -0.02, 0.1473, -0.02, -0.02, 0.1481, 0.02, -0.02, 0.1473, -0.02, -0.0065, 0.1479, -0.02, -0.02, 0.1481, 0.02, -0.0065, 0.1479, -0.02, -0.0093, 0.1485, 0.02, -0.0087, 0.1318, 0.02, -0.02, 0.1315, 0.02, -0.02, 0.1481, 0.02, -0.0093, 0.1485, 0.02, -0.0087, 0.1318, 0.02, -0.02, 0.1481, 0.02, -0.02, 0.1473, -0.02, -0.02, 0.1277, -0.02, -0.0057, 0.1282, -0.02, -0.02, 0.1473, -0.02, -0.0057, 0.1282, -0.02, -0.0065, 0.1479, -0.02, -0.0057, 0.1282, -0.02, -0.02, 0.1277, -0.02, -0.02, 0.1315, 0.02, -0.0087, 0.1318, 0.02, -0.0057, 0.1282, -0.02, -0.02, 0.1315, 0.02, -0.0065, 0.1479, -0.02, -0.0057, 0.1282, -0.02, -0.0087, 0.1318, 0.02, -0.0065, 0.1479, -0.02, -0.0087, 0.1318, 0.02, -0.0093, 0.1485, 0.02 )
+
+[sub_resource type="ConcavePolygonShape" id=18]
+data = PoolVector3Array( 0.02, 0.1497, 0.02, 0.007, 0.1492, 0.02, 0.0065, 0.16, 0.02, 0.02, 0.16, 0.02, 0.02, 0.1497, 0.02, 0.0065, 0.16, 0.02, 0.0065, 0.16, 0.02, 0.0093, 0.16, -0.02, 0.02, 0.16, -0.02, 0.0065, 0.16, 0.02, 0.02, 0.16, -0.02, 0.02, 0.16, 0.02, 0.02, 0.16, -0.02, 0.02, 0.1489, -0.02, 0.02, 0.1497, 0.02, 0.02, 0.16, -0.02, 0.02, 0.1497, 0.02, 0.02, 0.16, 0.02, 0.0093, 0.16, -0.02, 0.0099, 0.1485, -0.02, 0.02, 0.1489, -0.02, 0.0093, 0.16, -0.02, 0.02, 0.1489, -0.02, 0.02, 0.16, -0.02, 0.007, 0.1492, 0.02, 0.0099, 0.1485, -0.02, 0.0093, 0.16, -0.02, 0.0065, 0.16, 0.02, 0.007, 0.1492, 0.02, 0.0093, 0.16, -0.02, 0.02, 0.1489, -0.02, 0.0099, 0.1485, -0.02, 0.007, 0.1492, 0.02, 0.02, 0.1497, 0.02, 0.02, 0.1489, -0.02, 0.007, 0.1492, 0.02 )
+
+[sub_resource type="ConcavePolygonShape" id=19]
+data = PoolVector3Array( -0.0069, 0.16, -0.02, -0.0065, 0.1479, -0.02, 0.0099, 0.1485, -0.02, -0.0069, 0.16, -0.02, 0.0099, 0.1485, -0.02, 0.0093, 0.16, -0.02, 0.007, 0.1492, 0.02, -0.0093, 0.1485, 0.02, -0.0098, 0.16, 0.02, 0.0065, 0.16, 0.02, 0.007, 0.1492, 0.02, -0.0098, 0.16, 0.02, -0.0098, 0.16, 0.02, -0.0069, 0.16, -0.02, 0.0093, 0.16, -0.02, -0.0098, 0.16, 0.02, 0.0093, 0.16, -0.02, 0.0065, 0.16, 0.02, 0.0093, 0.16, -0.02, 0.0099, 0.1485, -0.02, 0.007, 0.1492, 0.02, 0.0093, 0.16, -0.02, 0.007, 0.1492, 0.02, 0.0065, 0.16, 0.02, 0.0099, 0.1485, -0.02, -0.0065, 0.1479, -0.02, -0.0093, 0.1485, 0.02, 0.007, 0.1492, 0.02, 0.0099, 0.1485, -0.02, -0.0093, 0.1485, 0.02, -0.0093, 0.1485, 0.02, -0.0065, 0.1479, -0.02, -0.0069, 0.16, -0.02, -0.0098, 0.16, 0.02, -0.0093, 0.1485, 0.02, -0.0069, 0.16, -0.02 )
+
+[sub_resource type="ConcavePolygonShape" id=20]
+data = PoolVector3Array( -0.02, 0.1481, 0.02, -0.02, 0.1473, -0.02, -0.02, 0.16, -0.02, -0.02, 0.16, 0.02, -0.02, 0.1481, 0.02, -0.02, 0.16, -0.02, -0.02, 0.16, -0.02, -0.02, 0.1473, -0.02, -0.0065, 0.1479, -0.02, -0.02, 0.16, -0.02, -0.0065, 0.1479, -0.02, -0.0069, 0.16, -0.02, -0.0093, 0.1485, 0.02, -0.02, 0.1481, 0.02, -0.02, 0.16, 0.02, -0.0098, 0.16, 0.02, -0.0093, 0.1485, 0.02, -0.02, 0.16, 0.02, -0.02, 0.16, 0.02, -0.02, 0.16, -0.02, -0.0069, 0.16, -0.02, -0.02, 0.16, 0.02, -0.0069, 0.16, -0.02, -0.0098, 0.16, 0.02, -0.0069, 0.16, -0.02, -0.0065, 0.1479, -0.02, -0.0093, 0.1485, 0.02, -0.0069, 0.16, -0.02, -0.0093, 0.1485, 0.02, -0.0098, 0.16, 0.02, -0.0065, 0.1479, -0.02, -0.02, 0.1473, -0.02, -0.02, 0.1481, 0.02, -0.0093, 0.1485, 0.02, -0.0065, 0.1479, -0.02, -0.02, 0.1481, 0.02 )
+
+[sub_resource type="ConcavePolygonShape" id=21]
+data = PoolVector3Array( 0.02, 0.03, 0.01, 0.02, 0, 0.01, 0, 0, 0.01, 0.02, 0.03, 0.01, 0, 0, 0.01, 0, 0.03, 0.01, 0, 0.03, -0.01, 0, 0, -0.01, 0.02, 0, -0.01, 0, 0.03, -0.01, 0.02, 0, -0.01, 0.02, 0.03, -0.01, 0.02, 0, -0.01, 0.02, 0, 0.01, 0.02, 0.03, 0.01, 0.02, 0.03, -0.01, 0.02, 0, -0.01, 0.02, 0.03, 0.01, 0, 0.03, 0.01, 0, 0, 0.01, 0, 0, -0.01, 0, 0.03, 0.01, 0, 0, -0.01, 0, 0.03, -0.01, 0.02, 0, 0.01, 0.02, 0, -0.01, 0, 0, -0.01, 0.02, 0, 0.01, 0, 0, -0.01, 0, 0, 0.01, 0, 0.03, 0.01, 0, 0.03, -0.01, 0.02, 0.03, -0.01, 0, 0.03, 0.01, 0.02, 0.03, -0.01, 0.02, 0.03, 0.01 )
+
+[sub_resource type="ConcavePolygonShape" id=22]
+data = PoolVector3Array( 0, 0.03, 0.01, 0, 0, 0.01, -0.02, 0, 0.01, 0, 0.03, 0.01, -0.02, 0, 0.01, -0.02, 0.03, 0.01, -0.02, 0.03, 0.01, -0.02, 0, 0.01, -0.02, 0, -0.01, -0.02, 0.03, 0.01, -0.02, 0, -0.01, -0.02, 0.03, -0.01, -0.02, 0.03, -0.01, -0.02, 0, -0.01, 0, 0, -0.01, -0.02, 0.03, -0.01, 0, 0, -0.01, 0, 0.03, -0.01, 0, 0, -0.01, 0, 0, 0.01, 0, 0.03, 0.01, 0, 0.03, -0.01, 0, 0, -0.01, 0, 0.03, 0.01, 0, 0, 0.01, 0, 0, -0.01, -0.02, 0, -0.01, 0, 0, 0.01, -0.02, 0, -0.01, -0.02, 0, 0.01, -0.02, 0.03, 0.01, -0.02, 0.03, -0.01, 0, 0.03, -0.01, -0.02, 0.03, 0.01, 0, 0.03, -0.01, 0, 0.03, 0.01 )
+
+[sub_resource type="ConcavePolygonShape" id=23]
+data = PoolVector3Array( 0.02, 0.06, 0.01, 0.02, 0.03, 0.01, 0, 0.03, 0.01, 0.02, 0.06, 0.01, 0, 0.03, 0.01, 0, 0.06, 0.01, 0, 0.06, 0.01, 0, 0.06, -0.01, 0.02, 0.06, -0.01, 0, 0.06, 0.01, 0.02, 0.06, -0.01, 0.02, 0.06, 0.01, 0, 0.06, -0.01, 0, 0.03, -0.01, 0.02, 0.03, -0.01, 0, 0.06, -0.01, 0.02, 0.03, -0.01, 0.02, 0.06, -0.01, 0.02, 0.03, -0.01, 0.02, 0.03, 0.01, 0.02, 0.06, 0.01, 0.02, 0.06, -0.01, 0.02, 0.03, -0.01, 0.02, 0.06, 0.01, 0, 0.06, 0.01, 0, 0.03, 0.01, 0, 0.03, -0.01, 0, 0.06, 0.01, 0, 0.03, -0.01, 0, 0.06, -0.01, 0.02, 0.03, 0.01, 0.02, 0.03, -0.01, 0, 0.03, -0.01, 0.02, 0.03, 0.01, 0, 0.03, -0.01, 0, 0.03, 0.01 )
+
+[sub_resource type="ConcavePolygonShape" id=24]
+data = PoolVector3Array( 0, 0.06, 0.01, 0, 0.03, 0.01, -0.02, 0.03, 0.01, 0, 0.06, 0.01, -0.02, 0.03, 0.01, -0.02, 0.06, 0.01, -0.02, 0.06, 0.01, -0.02, 0.06, -0.01, 0, 0.06, -0.01, -0.02, 0.06, 0.01, 0, 0.06, -0.01, 0, 0.06, 0.01, -0.02, 0.06, -0.01, -0.02, 0.03, -0.01, 0, 0.03, -0.01, -0.02, 0.06, -0.01, 0, 0.03, -0.01, 0, 0.06, -0.01, 0, 0.03, -0.01, 0, 0.03, 0.01, 0, 0.06, 0.01, 0, 0.06, -0.01, 0, 0.03, -0.01, 0, 0.06, 0.01, -0.02, 0.06, 0.01, -0.02, 0.03, 0.01, -0.02, 0.03, -0.01, -0.02, 0.06, 0.01, -0.02, 0.03, -0.01, -0.02, 0.06, -0.01, 0, 0.03, 0.01, 0, 0.03, -0.01, -0.02, 0.03, -0.01, 0, 0.03, 0.01, -0.02, 0.03, -0.01, -0.02, 0.03, 0.01 )
+
+[node name="Zombie" groups=[
+"enemy",
+] instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="col_body" type="CollisionShape" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.23945, 0 )
+visible = false
+shape = SubResource( 1 )
+
+[node name="col_leg_lwr_l" type="CollisionShape" parent="." index="1"]
+transform = Transform( 0.997513, -0.0704781, 0, 0.0704781, 0.997513, 0, 0, 0, 1, 0.294653, 0.390189, -0.0114489 )
+visible = false
+shape = SubResource( 2 )
+
+[node name="col_leg_uppr_l" type="CollisionShape" parent="." index="2"]
+transform = Transform( 0.997513, -0.0704781, 0, 0.0704781, 0.997513, 0, 0, 0, 1, 0.294653, 1.1344, -0.0114489 )
+visible = false
+shape = SubResource( 2 )
+
+[node name="col_leg_lwr_r" type="CollisionShape" parent="." index="3"]
+transform = Transform( 0.999118, 0.0420106, 0, -0.0420106, 0.999118, 0, 0, 0, 1, -0.307056, 0.378338, -0.0114489 )
+visible = false
+shape = SubResource( 3 )
+
+[node name="col_leg_uppr_r" type="CollisionShape" parent="." index="4"]
+transform = Transform( 0.999118, 0.0420106, 0, -0.0420106, 0.999118, 0, 0, 0, 1, -0.307056, 1.13604, -0.0114489 )
+visible = false
+shape = SubResource( 3 )
+
+[node name="BloodParticles" type="Particles" parent="." index="5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25854, -0.51324 )
+emitting = false
+amount = 50
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.66
+randomness = 0.45
+visibility_aabb = AABB( -1.64843, -2.32481, -0.199884, 3.26857, 3.11959, 1.75848 )
+process_material = ExtResource( 3 )
+draw_pass_1 = SubResource( 5 )
+
+[node name="KillArea" type="Area" parent="." index="6"]
+
+[node name="CollisionShape" type="CollisionShape" parent="KillArea" index="0"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.08102, -0.382914 )
+shape = SubResource( 6 )
+
+[node name="Armature" parent="." index="7"]
+transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+
+[node name="arm_lwr_l_bone" type="BoneAttachment" parent="Armature" index="1"]
+transform = Transform( -0.00862063, -0.999962, -1.19806e-09, -0.999963, 0.00862034, -1.16416e-07, 1.15683e-07, 1.07525e-09, -1, 0.03, 0.0899995, -0.000328179 )
+bone_name = "ArmL2"
+
+[node name="StaticBody" type="StaticBody" parent="Armature/arm_lwr_l_bone" index="0"]
+transform = Transform( -0.0123446, -0.991905, 0.126386, -0.999924, 0.0122458, -0.00156085, 5.57327e-07, -0.126395, -0.99198, 0.109396, 0.018651, 0.0135777 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Armature/arm_lwr_l_bone/StaticBody" index="0"]
+transform = Transform( 0.999993, 0.00372443, -5.18703e-07, -0.00369451, 0.991973, 0.126395, 0.000471307, -0.126394, 0.99198, -0.010335, 0.0208733, 0.0113587 )
+shape = SubResource( 7 )
+
+[node name="Armature2" parent="." index="8"]
+editor/display_folded = true
+transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+
+[node name="arm_lwr_r_bone" type="BoneAttachment" parent="Armature2" index="1"]
+transform = Transform( -2.73809e-07, -1, 3.71072e-10, -1, 3.1431e-18, -1.62924e-07, 1.62382e-07, 6.98375e-10, -1, -0.03, 0.0899884, -0.00156069 )
+bone_name = "ArmR2"
+
+[node name="StaticBody" type="StaticBody" parent="Armature2/arm_lwr_r_bone" index="0"]
+transform = Transform( 1.10639e-16, -1, 1.62924e-07, -1, 2.73809e-07, -3.71117e-10, -6.98375e-10, -1.62382e-07, -1, 0.0899995, -0.03, -0.000328165 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Armature2/arm_lwr_r_bone/StaticBody" index="0"]
+shape = SubResource( 8 )
+
+[node name="Armature3" parent="." index="9"]
+editor/display_folded = true
+transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+
+[node name="arm_uppr_l_bone" type="BoneAttachment" parent="Armature3" index="1"]
+transform = Transform( -0.012345, -0.999923, 2.32831e-10, -0.999924, 0.0123447, 2.27279e-08, -2.3465e-08, 9.31323e-10, -1, 0.02, 0.11, -0.000328178 )
+bone_name = "ArmL1"
+
+[node name="StaticBody" type="StaticBody" parent="Armature3/arm_uppr_l_bone" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Armature3/arm_uppr_l_bone/StaticBody" index="0"]
+transform = Transform( -0.0123447, -0.999924, -2.2729e-08, -0.999924, 0.012345, 4.77627e-11, -6.41592e-10, 2.34747e-08, -1, 0.110238, 0.0186405, -0.000328181 )
+shape = SubResource( 9 )
+
+[node name="Armature4" parent="." index="10"]
+editor/display_folded = true
+transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+
+[node name="arm_uppr_r_bone" type="BoneAttachment" parent="Armature4" index="1"]
+transform = Transform( -0.0240897, -0.999709, 2.32831e-10, -0.99971, 0.0240894, 2.27279e-08, -2.3243e-08, 1.39698e-09, -1, -0.02, 0.109988, -0.00156069 )
+bone_name = "ArmR1"
+
+[node name="StaticBody" type="StaticBody" parent="Armature4/arm_uppr_r_bone" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Armature4/arm_uppr_r_bone/StaticBody" index="0"]
+transform = Transform( -0.0240894, -0.99971, -2.27269e-08, -0.99971, 0.0240897, 3.14749e-10, -8.36664e-10, 2.327e-08, -1, 0.109475, -0.0226438, -0.00156069 )
+shape = SubResource( 10 )
+
+[node name="Armature5" parent="." index="11"]
+editor/display_folded = true
+transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+
+[node name="body" parent="Armature5" index="0"]
+transform = Transform( 1, 0, -2.44728e-08, 0, 1, 0, 2.44728e-08, 0, 1, 9.5392e-07, -5.68434e-14, 3.59614e-08 )
+
+[node name="body_bone" type="BoneAttachment" parent="Armature5" index="1"]
+transform = Transform( 0.999997, 7.44153e-08, -0.00216044, 2.04891e-07, 1, -4.36597e-08, 0.00216044, 4.38221e-08, 0.999998, 3.4243e-09, 0.11, 4.80711e-09 )
+bone_name = "Spine2"
+
+[node name="StaticBody" type="StaticBody" parent="Armature5/body_bone" index="0"]
+transform = Transform( 1, 0, -2.44728e-08, 0, 1, 0, 2.44728e-08, 0, 1, 9.5392e-07, -5.68434e-14, 3.59614e-08 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Armature5/body_bone/StaticBody" index="0"]
+transform = Transform( 0.999998, -7.45098e-08, 0.00216046, -2.04985e-07, 1, 4.3217e-08, -0.00216046, -4.36612e-08, 0.999997, -9.49159e-07, -0.11, -3.59583e-08 )
+shape = SubResource( 11 )
+
+[node name="Armature6" parent="." index="12"]
+editor/display_folded = true
+transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+
+[node name="head_lwr_l_bone" type="BoneAttachment" parent="Armature6" index="1"]
+transform = Transform( 1, -1.86265e-09, 2.32831e-10, 2.81263e-07, 1, -4.31054e-08, -1.39698e-09, 4.37105e-08, 1, 4.93041e-09, 0.12, 5.77085e-09 )
+bone_name = "Neck1"
+
+[node name="StaticBody" type="StaticBody" parent="Armature6/head_lwr_l_bone" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Armature6/head_lwr_l_bone/StaticBody" index="0"]
+transform = Transform( 1, 1.86265e-09, -2.32831e-10, -2.81263e-07, 1, 4.31054e-08, 1.39701e-09, -4.37105e-08, 1, -5.15392e-09, -0.12, -5.25589e-10 )
+shape = SubResource( 12 )
+
+[node name="Armature7" parent="." index="13"]
+editor/display_folded = true
+transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+
+[node name="head_lwr_m_bone" type="BoneAttachment" parent="Armature7" index="1"]
+transform = Transform( 1, -1.86265e-09, 2.32831e-10, 2.81263e-07, 1, -4.31054e-08, -1.39698e-09, 4.37105e-08, 1, 4.93154e-09, 0.12, 5.24669e-09 )
+bone_name = "Neck1"
+
+[node name="StaticBody" type="StaticBody" parent="Armature7/head_lwr_m_bone" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Armature7/head_lwr_m_bone/StaticBody" index="0"]
+transform = Transform( 1, 1.86265e-09, -2.32831e-10, -2.81263e-07, 1, 4.31054e-08, 1.39701e-09, -4.37105e-08, 1, -5.15506e-09, -0.12, -1.42686e-12 )
+shape = SubResource( 13 )
+
+[node name="Armature8" parent="." index="14"]
+editor/display_folded = true
+transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+
+[node name="head_lwr_r_bone" type="BoneAttachment" parent="Armature8" index="1"]
+transform = Transform( 1, -1.86265e-09, 2.32831e-10, 2.81263e-07, 1, -4.31054e-08, -1.39698e-09, 4.37105e-08, 1, 4.93135e-09, 0.12, 5.3341e-09 )
+bone_name = "Neck1"
+
+[node name="StaticBody" type="StaticBody" parent="Armature8/head_lwr_r_bone" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Armature8/head_lwr_r_bone/StaticBody" index="0"]
+transform = Transform( 1, 1.86265e-09, -2.32831e-10, -2.81263e-07, 1, 4.31054e-08, 1.39701e-09, -4.37105e-08, 1, -5.15487e-09, -0.12, -8.88369e-11 )
+shape = SubResource( 14 )
+
+[node name="Armature9" parent="." index="15"]
+editor/display_folded = true
+transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+
+[node name="head_mid_l_bone" type="BoneAttachment" parent="Armature9" index="1"]
+editor/display_folded = true
+transform = Transform( 1, -1.86265e-09, 2.32831e-10, 2.81263e-07, 1, -4.31054e-08, -1.39698e-09, 4.37105e-08, 1, 4.9308e-09, 0.12, 5.58758e-09 )
+bone_name = "Neck1"
+
+[node name="StaticBody" type="StaticBody" parent="Armature9/head_mid_l_bone" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Armature9/head_mid_l_bone/StaticBody" index="0"]
+transform = Transform( 1, 1.86265e-09, -2.32831e-10, -2.81263e-07, 1, 4.31054e-08, 1.39701e-09, -4.37105e-08, 1, -5.15432e-09, -0.12, -3.42326e-10 )
+shape = SubResource( 15 )
+
+[node name="Armature10" parent="." index="16"]
+transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+
+[node name="head_mid_m_bone" type="BoneAttachment" parent="Armature10" index="1"]
+transform = Transform( 1, -1.86265e-09, 2.32831e-10, 2.81263e-07, 1, -4.31054e-08, -1.39698e-09, 4.37105e-08, 1, 4.93091e-09, 0.12, 5.53805e-09 )
+bone_name = "Neck1"
+
+[node name="StaticBody" type="StaticBody" parent="Armature10/head_mid_m_bone" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Armature10/head_mid_m_bone/StaticBody" index="0"]
+transform = Transform( 1, 1.86265e-09, -2.32831e-10, -2.81263e-07, 1, 4.31054e-08, 1.39701e-09, -4.37105e-08, 1, -5.15443e-09, -0.12, -2.92793e-10 )
+shape = SubResource( 16 )
+
+[node name="Armature11" parent="." index="17"]
+transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+
+[node name="head_mid_r_bone" type="BoneAttachment" parent="Armature11" index="1"]
+transform = Transform( 1, -1.86265e-09, 2.32831e-10, 2.81263e-07, 1, -4.31054e-08, -1.39698e-09, 4.37105e-08, 1, 4.93057e-09, 0.12, 5.69248e-09 )
+bone_name = "Neck1"
+
+[node name="StaticBody" type="StaticBody" parent="Armature11/head_mid_r_bone" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Armature11/head_mid_r_bone/StaticBody" index="0"]
+transform = Transform( 1, 1.86265e-09, -2.32831e-10, -2.81263e-07, 1, 4.31054e-08, 1.39701e-09, -4.37105e-08, 1, -5.15409e-09, -0.12, -4.47218e-10 )
+shape = SubResource( 17 )
+
+[node name="Armature12" parent="." index="18"]
+transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+
+[node name="head_uppr_l_bone" type="BoneAttachment" parent="Armature12" index="1"]
+transform = Transform( 1, -1.86265e-09, 2.32831e-10, 2.81263e-07, 1, -4.31054e-08, -1.39698e-09, 4.37105e-08, 1, 4.93037e-09, 0.12, 5.78571e-09 )
+bone_name = "Neck1"
+
+[node name="StaticBody" type="StaticBody" parent="Armature12/head_uppr_l_bone" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Armature12/head_uppr_l_bone/StaticBody" index="0"]
+transform = Transform( 1, 1.86265e-09, -2.32831e-10, -2.81263e-07, 1, 4.31054e-08, 1.39701e-09, -4.37105e-08, 1, -5.15389e-09, -0.12, -5.40454e-10 )
+shape = SubResource( 18 )
+
+[node name="Armature13" parent="." index="19"]
+transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+
+[node name="head_uppr_m_bone" type="BoneAttachment" parent="Armature13" index="1"]
+transform = Transform( 1, -1.86265e-09, 2.32831e-10, 2.81263e-07, 1, -4.31054e-08, -1.39698e-09, 4.37105e-08, 1, 4.93027e-09, 0.12, 5.83233e-09 )
+bone_name = "Neck1"
+
+[node name="StaticBody" type="StaticBody" parent="Armature13/head_uppr_m_bone" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Armature13/head_uppr_m_bone/StaticBody" index="0"]
+transform = Transform( 1, 1.86265e-09, -2.32831e-10, -2.81263e-07, 1, 4.31054e-08, 1.39701e-09, -4.37105e-08, 1, -5.15379e-09, -0.12, -5.87074e-10 )
+shape = SubResource( 19 )
+
+[node name="Armature14" parent="." index="20"]
+transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+
+[node name="head_uppr_r_bone" type="BoneAttachment" parent="Armature14" index="1"]
+transform = Transform( 1, -1.86265e-09, 2.32831e-10, 2.81263e-07, 1, -4.31054e-08, -1.39698e-09, 4.37105e-08, 1, 4.93013e-09, 0.12, 5.89935e-09 )
+bone_name = "Neck1"
+
+[node name="StaticBody" type="StaticBody" parent="Armature14/head_uppr_r_bone" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Armature14/head_uppr_r_bone/StaticBody" index="0"]
+transform = Transform( 1, 1.86265e-09, -2.32831e-10, -2.81263e-07, 1, 4.31054e-08, 1.39701e-09, -4.37105e-08, 1, -5.15365e-09, -0.12, -6.54088e-10 )
+shape = SubResource( 20 )
+
+[node name="Armature15" parent="." index="21"]
+editor/display_folded = true
+transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+
+[node name="leg_lwr_l_bone" type="BoneAttachment" parent="Armature15" index="1"]
+transform = Transform( 0.0181787, 0.999834, 3.6673e-09, -0.999835, 0.0181788, -1.86789e-09, -2.09522e-09, 5.61829e-10, 1, 0.00979303, 0.03, 1.31163e-09 )
+bone_name = "LegL2"
+
+[node name="StaticBody" type="StaticBody" parent="Armature15/leg_lwr_l_bone" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Armature15/leg_lwr_l_bone/StaticBody" index="0"]
+transform = Transform( 0.0181789, -0.999835, -1.93424e-09, 0.999835, 0.0181787, -3.63274e-09, -5.23656e-10, -2.10508e-09, 0.999998, 0.029817, -0.0103368, -1.24335e-09 )
+shape = SubResource( 21 )
+
+[node name="Armature16" parent="." index="22"]
+editor/display_folded = true
+transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+
+[node name="leg_lwr_r_bone" type="BoneAttachment" parent="Armature16" index="1"]
+editor/display_folded = true
+transform = Transform( -1.1269e-07, -1, 6.48195e-10, -1, -1.86265e-09, -1.62921e-07, 1.62666e-07, 2.32859e-10, -1, -0.00999999, 0.03, 1.32977e-09 )
+bone_name = "LegR2"
+
+[node name="StaticBody" type="StaticBody" parent="Armature16/leg_lwr_r_bone" index="0"]
+transform = Transform( 1.86265e-09, -1, 1.62921e-07, -1, 1.1269e-07, -6.48221e-10, -2.32859e-10, -1.62666e-07, -1, 0.03, -0.01, 6.20742e-09 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Armature16/leg_lwr_r_bone/StaticBody" index="0"]
+shape = SubResource( 22 )
+
+[node name="Armature17" parent="." index="23"]
+editor/display_folded = true
+transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+
+[node name="leg_uppr_l_bone" type="BoneAttachment" parent="Armature17" index="1"]
+editor/display_folded = true
+transform = Transform( -1.10135e-07, 1, 4.65661e-09, -1, -7.20257e-15, 1.98553e-08, 1.96182e-08, -4.65661e-10, 1, 0.00979304, 0.06, 2.62996e-09 )
+bone_name = "LegL1"
+
+[node name="StaticBody" type="StaticBody" parent="Armature17/leg_uppr_l_bone" index="0"]
+transform = Transform( -7.19333e-15, -1, 1.98553e-08, 1, -1.10136e-07, -4.65661e-09, 4.65661e-10, 1.96182e-08, 0.999998, 0.06, -0.00979304, -3.8116e-09 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Armature17/leg_uppr_l_bone/StaticBody" index="0"]
+shape = SubResource( 23 )
+
+[node name="Armature18" parent="." index="24"]
+editor/display_folded = true
+transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+
+[node name="leg_uppr_r_bone" type="BoneAttachment" parent="Armature18" index="1"]
+transform = Transform( -0.0128196, -0.999918, -1.16415e-09, -0.999918, 0.0128195, -8.71322e-08, 8.68968e-08, 9.31323e-10, -1, -0.01, 0.06, 2.62996e-09 )
+bone_name = "LegR1"
+
+[node name="StaticBody" type="StaticBody" parent="Armature18/leg_uppr_r_bone" index="0"]
+transform = Transform( -0.0128195, -0.999918, 8.714e-08, -0.999918, 0.0128196, 4.70592e-11, -2.04522e-09, -8.68777e-08, -1, 0.0598669, -0.0107684, 7.82217e-09 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Armature18/leg_uppr_r_bone/StaticBody" index="0"]
+shape = SubResource( 24 )
+[connection signal="body_entered" from="KillArea" to="." method="_on_KillArea_body_entered"]

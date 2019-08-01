@@ -19,27 +19,27 @@ onready var gameManager = get_tree().get_current_scene()
 # connected: if the actual part gets destroyed, the connected parts are destroyed as well
 
 var hitpoints = {
-  "head_uppr_r": {"health": 25, "fatal": false, "need_one": ["head_mid_r", "head_mid_m", "head_mid_l"]},
-  "head_uppr_m": {"health": 25, "fatal": false, "need_one": ["head_mid_r", "head_mid_m", "head_mid_l"]},
-  "head_uppr_l": {"health": 25, "fatal": false, "need_one": ["head_mid_r", "head_mid_m", "head_mid_l"]},
-  "head_mid_r": {"health": 25, "fatal": false, "need_one": ["head_lwr_r", "head_lwr_m", "head_lwr_l"]},
-  "head_mid_m": {"health": 50, "fatal": true, "need_one": ["head_lwr_r", "head_lwr_m", "head_lwr_l"]},
-  "head_mid_l": {"health": 25, "fatal": false, "need_one": ["head_lwr_r", "head_lwr_m", "head_lwr_l"]},
-  "head_lwr_r": {"health": 25, "fatal": false},
-  "head_lwr_m": {"health": 50, "fatal": true},
-  "head_lwr_l": {"health": 25, "fatal": false},
+  "head_uppr_r_bone": {"health": 25, "fatal": false, "need_one": ["head_mid_r_bone", "head_mid_m_bone", "head_mid_l_bone"]},
+  "head_uppr_m_bone": {"health": 25, "fatal": false, "need_one": ["head_mid_r_bone", "head_mid_m_bone", "head_mid_l_bone"]},
+  "head_uppr_l_bone": {"health": 25, "fatal": false, "need_one": ["head_mid_r_bone", "head_mid_m_bone", "head_mid_l_bone"]},
+  "head_mid_r_bone": {"health": 25, "fatal": false, "need_one": ["head_lwr_r_bone", "head_lwr_m_bone", "head_lwr_l_bone"]},
+  "head_mid_m_bone": {"health": 50, "fatal": true, "need_one": ["head_lwr_r_bone", "head_lwr_m_bone", "head_lwr_l_bone"]},
+  "head_mid_l_bone": {"health": 25, "fatal": false, "need_one": ["head_lwr_r_bone", "head_lwr_m_bone", "head_lwr_l_bone"]},
+  "head_lwr_r_bone": {"health": 25, "fatal": false},
+  "head_lwr_m_bone": {"health": 50, "fatal": true},
+  "head_lwr_l_bone": {"health": 25, "fatal": false},
   
   "body": {"health": -1, "fatal": false},
   
-  "arm_uppr_l": {"health": 25, "fatal": false, "connected": ["arm_lwr_l"]},
-  "arm_lwr_l": {"health": 25, "fatal": false},
-  "arm_uppr_r": {"health": 25, "fatal": false, "connected": ["arm_lwr_r"]},
-  "arm_lwr_r": {"health": 25, "fatal": false},
+  "arm_uppr_l_bone": {"health": 25, "fatal": false, "connected": ["arm_lwr_l_bone"]},
+  "arm_lwr_l_bone": {"health": 25, "fatal": false},
+  "arm_uppr_r_bone": {"health": 25, "fatal": false, "connected": ["arm_lwr_r_bone"]},
+  "arm_lwr_r_bone": {"health": 25, "fatal": false},
   
-  "leg_uppr_l": {"health": 25, "fatal": false, "connected": ["leg_lwr_l", "col_leg_lwr_l", "col_leg_uppr_l"]},
-  "leg_lwr_l": {"health": 25, "fatal": false, "connected": ["col_leg_lwr_l"]},
-  "leg_uppr_r": {"health": 25, "fatal": false, "connected": ["leg_lwr_r", "col_leg_lwr_r", "col_leg_uppr_r"]},
-  "leg_lwr_r": {"health": 25, "fatal": false, "connected": ["col_leg_lwr_r"]},
+  "leg_uppr_l_bone": {"health": 25, "fatal": false, "connected": ["leg_lwr_l_bone", "col_leg_lwr_l", "col_leg_uppr_l"]},
+  "leg_lwr_l_bone": {"health": 25, "fatal": false, "connected": ["col_leg_lwr_l"]},
+  "leg_uppr_r_bone": {"health": 25, "fatal": false, "connected": ["leg_lwr_r_bone", "col_leg_lwr_r", "col_leg_uppr_r"]},
+  "leg_lwr_r_bone": {"health": 25, "fatal": false, "connected": ["col_leg_lwr_r"]},
  }
 
 # Called when the node enters the scene tree for the first time.
@@ -48,16 +48,19 @@ func _ready():
   set_process_input(true)
   
   self.player = get_tree().get_nodes_in_group("player")[0]
+  $AnimationPlayer.playback_speed = 5
+  $AnimationPlayer.play("walk")
   
   
 func _physics_process(delta):
   if(not self.gameManager.running):
+    $AnimationPlayer.stop()
     return
   gravity_speed -= GRAVITY * gravity_scl * mass * delta
   var velocity = Vector3()
-  if(self.hitpoints["leg_uppr_l"]["health"] <= 0 or self.hitpoints["leg_uppr_r"]["health"] <= 0 or self.hitpoints["leg_lwr_l"]["health"] <= 0 or self.hitpoints["leg_lwr_r"]["health"] <= 0):
+  if(self.hitpoints["leg_uppr_l_bone"]["health"] <= 0 or self.hitpoints["leg_uppr_r_bone"]["health"] <= 0 or self.hitpoints["leg_lwr_l_bone"]["health"] <= 0 or self.hitpoints["leg_lwr_r_bone"]["health"] <= 0):
     self.speed = 2.5
-  if((self.hitpoints["leg_uppr_l"]["health"] > 0 or self.hitpoints["leg_uppr_r"]["health"] > 0) and not dead):
+  if((self.hitpoints["leg_uppr_l_bone"]["health"] > 0 or self.hitpoints["leg_uppr_r_bone"]["health"] > 0) and not dead):
     var lookPos = player.get_transform().origin
     look_at(lookPos,Vector3(0,1,0))
     
@@ -70,6 +73,7 @@ func _physics_process(delta):
     self.rotation_degrees.x += delta * 300
     if(self.rotation_degrees.x >= 90):
       self.dying = false
+      $AnimationPlayer.stop()
       self.translation.y = 0.5
   
 
@@ -90,7 +94,7 @@ func hit(collider, collision_point, damage):
     if(self.hitpoints[limbName]["health"] > 0):
       self.hitpoints[limbName]["health"] -= damage
       if(self.hitpoints[limbName]["health"] <= 0):
-        collider.get_parent().queue_free()
+        collider.get_parent().get_parent().queue_free()
         if(self.hitpoints[limbName].has("connected")):
           for connected in self.hitpoints[limbName]["connected"]:
             var conn = self.find_node(connected)
@@ -99,7 +103,7 @@ func hit(collider, collision_point, damage):
                 conn.disabled = true
                 conn.queue_free()
               else:
-                conn.queue_free()
+                conn.get_parent().queue_free()
                 
         self.checkBodyParts()
         
@@ -126,7 +130,7 @@ func checkBodyParts():
         self.hitpoints[hitpoint]["health"] = 0
         var n = self.find_node(hitpoint)
         if(n): 
-          n.queue_free()
+          n.get_parent().queue_free()
           yield(get_tree(),"idle_frame")
           self.checkBodyParts()
         

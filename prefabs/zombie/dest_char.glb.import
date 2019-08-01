@@ -2,18 +2,18 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/dest_char.dae-9565e9e3d55a0776f8d56c4be019a544.scn"
+path="res://.import/dest_char.glb-1ac556d67ac5af75526fece93d8e3203.scn"
 
 [deps]
 
-source_file="res://prefabs/zombie/dest_char.dae"
-dest_files=[ "res://.import/dest_char.dae-9565e9e3d55a0776f8d56c4be019a544.scn" ]
+source_file="res://prefabs/zombie/dest_char.glb"
+dest_files=[ "res://.import/dest_char.glb-1ac556d67ac5af75526fece93d8e3203.scn" ]
 
 [params]
 
 nodes/root_type="KinematicBody"
-nodes/root_name="Character"
-nodes/root_scale=1.0
+nodes/root_name="Zombie"
+nodes/root_scale=20.0
 nodes/custom_script=""
 nodes/storage=0
 materials/location=1
@@ -25,7 +25,7 @@ meshes/storage=0
 meshes/light_baking=0
 meshes/lightmap_texel_size=0.1
 external_files/store_in_subdir=false
-animation/import=false
+animation/import=true
 animation/fps=15
 animation/filter_script=""
 animation/storage=1
