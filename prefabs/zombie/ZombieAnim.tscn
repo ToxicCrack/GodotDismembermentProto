@@ -78,7 +78,7 @@ data = PoolVector3Array( 0.02, 0.06, 0.01, 0.02, 0.03, 0.01, 0, 0.03, 0.01, 0.02
 [sub_resource type="ConcavePolygonShape" id=24]
 data = PoolVector3Array( 0, 0.06, 0.01, 0, 0.03, 0.01, -0.02, 0.03, 0.01, 0, 0.06, 0.01, -0.02, 0.03, 0.01, -0.02, 0.06, 0.01, -0.02, 0.06, 0.01, -0.02, 0.06, -0.01, 0, 0.06, -0.01, -0.02, 0.06, 0.01, 0, 0.06, -0.01, 0, 0.06, 0.01, -0.02, 0.06, -0.01, -0.02, 0.03, -0.01, 0, 0.03, -0.01, -0.02, 0.06, -0.01, 0, 0.03, -0.01, 0, 0.06, -0.01, 0, 0.03, -0.01, 0, 0.03, 0.01, 0, 0.06, 0.01, 0, 0.06, -0.01, 0, 0.03, -0.01, 0, 0.06, 0.01, -0.02, 0.06, 0.01, -0.02, 0.03, 0.01, -0.02, 0.03, -0.01, -0.02, 0.06, 0.01, -0.02, 0.03, -0.01, -0.02, 0.06, -0.01, 0, 0.03, 0.01, 0, 0.03, -0.01, -0.02, 0.03, -0.01, 0, 0.03, 0.01, -0.02, 0.03, -0.01, -0.02, 0.03, 0.01 )
 
-[node name="Zombie" groups=[
+[node name="Zombie" index="0" groups=[
 "enemy",
 ] instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
@@ -131,6 +131,7 @@ shape = SubResource( 6 )
 
 [node name="Armature" parent="." index="7"]
 transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+bones/8/bound_children = [ NodePath("arm_lwr_l_bone") ]
 
 [node name="arm_lwr_l_bone" type="BoneAttachment" parent="Armature" index="1"]
 transform = Transform( -0.00862063, -0.999962, -1.19806e-09, -0.999963, 0.00862034, -1.16416e-07, 1.15683e-07, 1.07525e-09, -1, 0.03, 0.0899995, -0.000328179 )
@@ -146,6 +147,7 @@ shape = SubResource( 7 )
 [node name="Armature2" parent="." index="8"]
 editor/display_folded = true
 transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+bones/5/bound_children = [ NodePath("arm_lwr_r_bone") ]
 
 [node name="arm_lwr_r_bone" type="BoneAttachment" parent="Armature2" index="1"]
 transform = Transform( -2.73809e-07, -1, 3.71072e-10, -1, 3.1431e-18, -1.62924e-07, 1.62382e-07, 6.98375e-10, -1, -0.03, 0.0899884, -0.00156069 )
@@ -160,6 +162,7 @@ shape = SubResource( 8 )
 [node name="Armature3" parent="." index="9"]
 editor/display_folded = true
 transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+bones/7/bound_children = [ NodePath("arm_uppr_l_bone") ]
 
 [node name="arm_uppr_l_bone" type="BoneAttachment" parent="Armature3" index="1"]
 transform = Transform( -0.012345, -0.999923, 2.32831e-10, -0.999924, 0.0123447, 2.27279e-08, -2.3465e-08, 9.31323e-10, -1, 0.02, 0.11, -0.000328178 )
@@ -174,6 +177,7 @@ shape = SubResource( 9 )
 [node name="Armature4" parent="." index="10"]
 editor/display_folded = true
 transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+bones/4/bound_children = [ NodePath("arm_uppr_r_bone") ]
 
 [node name="arm_uppr_r_bone" type="BoneAttachment" parent="Armature4" index="1"]
 transform = Transform( -0.0240897, -0.999709, 2.32831e-10, -0.99971, 0.0240894, 2.27279e-08, -2.3243e-08, 1.39698e-09, -1, -0.02, 0.109988, -0.00156069 )
@@ -188,6 +192,7 @@ shape = SubResource( 10 )
 [node name="Armature5" parent="." index="11"]
 editor/display_folded = true
 transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+bones/2/bound_children = [ NodePath("body_bone") ]
 
 [node name="body" parent="Armature5" index="0"]
 transform = Transform( 1, 0, -2.44728e-08, 0, 1, 0, 2.44728e-08, 0, 1, 9.5392e-07, -5.68434e-14, 3.59614e-08 )
@@ -206,6 +211,7 @@ shape = SubResource( 11 )
 [node name="Armature6" parent="." index="12"]
 editor/display_folded = true
 transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+bones/3/bound_children = [ NodePath("head_lwr_l_bone") ]
 
 [node name="head_lwr_l_bone" type="BoneAttachment" parent="Armature6" index="1"]
 transform = Transform( 1, -1.86265e-09, 2.32831e-10, 2.81263e-07, 1, -4.31054e-08, -1.39698e-09, 4.37105e-08, 1, 4.93041e-09, 0.12, 5.77085e-09 )
@@ -220,6 +226,7 @@ shape = SubResource( 12 )
 [node name="Armature7" parent="." index="13"]
 editor/display_folded = true
 transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+bones/3/bound_children = [ NodePath("head_lwr_m_bone") ]
 
 [node name="head_lwr_m_bone" type="BoneAttachment" parent="Armature7" index="1"]
 transform = Transform( 1, -1.86265e-09, 2.32831e-10, 2.81263e-07, 1, -4.31054e-08, -1.39698e-09, 4.37105e-08, 1, 4.93154e-09, 0.12, 5.24669e-09 )
@@ -234,6 +241,7 @@ shape = SubResource( 13 )
 [node name="Armature8" parent="." index="14"]
 editor/display_folded = true
 transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+bones/3/bound_children = [ NodePath("head_lwr_r_bone") ]
 
 [node name="head_lwr_r_bone" type="BoneAttachment" parent="Armature8" index="1"]
 transform = Transform( 1, -1.86265e-09, 2.32831e-10, 2.81263e-07, 1, -4.31054e-08, -1.39698e-09, 4.37105e-08, 1, 4.93135e-09, 0.12, 5.3341e-09 )
@@ -248,6 +256,7 @@ shape = SubResource( 14 )
 [node name="Armature9" parent="." index="15"]
 editor/display_folded = true
 transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+bones/3/bound_children = [ NodePath("head_mid_l_bone") ]
 
 [node name="head_mid_l_bone" type="BoneAttachment" parent="Armature9" index="1"]
 editor/display_folded = true
@@ -262,6 +271,7 @@ shape = SubResource( 15 )
 
 [node name="Armature10" parent="." index="16"]
 transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+bones/3/bound_children = [ NodePath("head_mid_m_bone") ]
 
 [node name="head_mid_m_bone" type="BoneAttachment" parent="Armature10" index="1"]
 transform = Transform( 1, -1.86265e-09, 2.32831e-10, 2.81263e-07, 1, -4.31054e-08, -1.39698e-09, 4.37105e-08, 1, 4.93091e-09, 0.12, 5.53805e-09 )
@@ -275,6 +285,7 @@ shape = SubResource( 16 )
 
 [node name="Armature11" parent="." index="17"]
 transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+bones/3/bound_children = [ NodePath("head_mid_r_bone") ]
 
 [node name="head_mid_r_bone" type="BoneAttachment" parent="Armature11" index="1"]
 transform = Transform( 1, -1.86265e-09, 2.32831e-10, 2.81263e-07, 1, -4.31054e-08, -1.39698e-09, 4.37105e-08, 1, 4.93057e-09, 0.12, 5.69248e-09 )
@@ -288,6 +299,7 @@ shape = SubResource( 17 )
 
 [node name="Armature12" parent="." index="18"]
 transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+bones/3/bound_children = [ NodePath("head_uppr_l_bone") ]
 
 [node name="head_uppr_l_bone" type="BoneAttachment" parent="Armature12" index="1"]
 transform = Transform( 1, -1.86265e-09, 2.32831e-10, 2.81263e-07, 1, -4.31054e-08, -1.39698e-09, 4.37105e-08, 1, 4.93037e-09, 0.12, 5.78571e-09 )
@@ -301,6 +313,7 @@ shape = SubResource( 18 )
 
 [node name="Armature13" parent="." index="19"]
 transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+bones/3/bound_children = [ NodePath("head_uppr_m_bone") ]
 
 [node name="head_uppr_m_bone" type="BoneAttachment" parent="Armature13" index="1"]
 transform = Transform( 1, -1.86265e-09, 2.32831e-10, 2.81263e-07, 1, -4.31054e-08, -1.39698e-09, 4.37105e-08, 1, 4.93027e-09, 0.12, 5.83233e-09 )
@@ -314,6 +327,7 @@ shape = SubResource( 19 )
 
 [node name="Armature14" parent="." index="20"]
 transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+bones/3/bound_children = [ NodePath("head_uppr_r_bone") ]
 
 [node name="head_uppr_r_bone" type="BoneAttachment" parent="Armature14" index="1"]
 transform = Transform( 1, -1.86265e-09, 2.32831e-10, 2.81263e-07, 1, -4.31054e-08, -1.39698e-09, 4.37105e-08, 1, 4.93013e-09, 0.12, 5.89935e-09 )
@@ -328,6 +342,7 @@ shape = SubResource( 20 )
 [node name="Armature15" parent="." index="21"]
 editor/display_folded = true
 transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+bones/14/bound_children = [ NodePath("leg_lwr_l_bone") ]
 
 [node name="leg_lwr_l_bone" type="BoneAttachment" parent="Armature15" index="1"]
 transform = Transform( 0.0181787, 0.999834, 3.6673e-09, -0.999835, 0.0181788, -1.86789e-09, -2.09522e-09, 5.61829e-10, 1, 0.00979303, 0.03, 1.31163e-09 )
@@ -342,6 +357,7 @@ shape = SubResource( 21 )
 [node name="Armature16" parent="." index="22"]
 editor/display_folded = true
 transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+bones/11/bound_children = [ NodePath("leg_lwr_r_bone") ]
 
 [node name="leg_lwr_r_bone" type="BoneAttachment" parent="Armature16" index="1"]
 editor/display_folded = true
@@ -357,6 +373,7 @@ shape = SubResource( 22 )
 [node name="Armature17" parent="." index="23"]
 editor/display_folded = true
 transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+bones/13/bound_children = [ NodePath("leg_uppr_l_bone") ]
 
 [node name="leg_uppr_l_bone" type="BoneAttachment" parent="Armature17" index="1"]
 editor/display_folded = true
@@ -372,6 +389,7 @@ shape = SubResource( 23 )
 [node name="Armature18" parent="." index="24"]
 editor/display_folded = true
 transform = Transform( -25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 0 )
+bones/10/bound_children = [ NodePath("leg_uppr_r_bone") ]
 
 [node name="leg_uppr_r_bone" type="BoneAttachment" parent="Armature18" index="1"]
 transform = Transform( -0.0128196, -0.999918, -1.16415e-09, -0.999918, 0.0128195, -8.71322e-08, 8.68968e-08, 9.31323e-10, -1, -0.01, 0.06, 2.62996e-09 )

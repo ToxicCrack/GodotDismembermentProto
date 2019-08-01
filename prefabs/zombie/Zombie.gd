@@ -94,7 +94,9 @@ func hit(collider, collision_point, damage):
     if(self.hitpoints[limbName]["health"] > 0):
       self.hitpoints[limbName]["health"] -= damage
       if(self.hitpoints[limbName]["health"] <= 0):
-        collider.get_parent().get_parent().queue_free()
+        #collider.get_parent().get_parent().queue_free()
+        for child in collider.get_parent().get_parent().get_children():
+            child.queue_free()
         if(self.hitpoints[limbName].has("connected")):
           for connected in self.hitpoints[limbName]["connected"]:
             var conn = self.find_node(connected)
@@ -129,8 +131,9 @@ func checkBodyParts():
         #remove Body Part
         self.hitpoints[hitpoint]["health"] = 0
         var n = self.find_node(hitpoint)
-        if(n): 
-          n.get_parent().queue_free()
+        if(n):
+          for child in n.get_parent().get_children():
+            child.queue_free()
           yield(get_tree(),"idle_frame")
           self.checkBodyParts()
         
